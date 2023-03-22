@@ -7,9 +7,13 @@ class ShoePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CustomAppBar(
-        text: 'For you',
+    return Scaffold(
+      body: Column(
+        children: const [
+          CustomAppBar(text: 'For you'),
+          SizedBox(height: 20),
+          ShoeSizePreview(),
+        ],
       ),
     );
   }
