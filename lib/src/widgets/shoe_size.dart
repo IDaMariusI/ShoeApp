@@ -16,8 +16,7 @@ class ShoeSizePreview extends StatelessWidget {
         ),
         child: Column(
           children: [
-            //Shoe with shadow
-            _ShowWithShadow(),
+            _ShoeWithShadow(),
 
             //TODO: Sizes
           ],
@@ -27,15 +26,39 @@ class ShoeSizePreview extends StatelessWidget {
   }
 }
 
-class _ShowWithShadow extends StatelessWidget {
+class _ShoeWithShadow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(50),
       child: Stack(
-        children: const [
-          Image(image: AssetImage('assets/imgs/azul.png')),
+        children: [
+          Positioned(
+            bottom: 20,
+            right: 0,
+            child: _ShoeShadow(),
+          ),
+          const Image(image: AssetImage('assets/imgs/azul.png')),
         ],
+      ),
+    );
+  }
+}
+
+class _ShoeShadow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Transform.rotate(
+      angle: -0.5,
+      child: Container(
+        height: 120,
+        width: 230,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          boxShadow: const [
+            BoxShadow(color: Color(0xffEAA14E), blurRadius: 40),
+          ],
+        ),
       ),
     );
   }
