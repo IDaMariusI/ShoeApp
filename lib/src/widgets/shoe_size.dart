@@ -17,8 +17,7 @@ class ShoeSizePreview extends StatelessWidget {
         child: Column(
           children: [
             _ShoeWithShadow(),
-
-            //TODO: Sizes
+            _ShoeSize(),
           ],
         ),
       ),
@@ -58,6 +57,56 @@ class _ShoeShadow extends StatelessWidget {
           boxShadow: const [
             BoxShadow(color: Color(0xffEAA14E), blurRadius: 40),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ShoeSize extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _ShoeSizeBox(7),
+          _ShoeSizeBox(7.5),
+          _ShoeSizeBox(8),
+          _ShoeSizeBox(8.5),
+          _ShoeSizeBox(9),
+          _ShoeSizeBox(9.5),
+        ],
+      ),
+    );
+  }
+}
+
+class _ShoeSizeBox extends StatelessWidget {
+  const _ShoeSizeBox(this.number);
+
+  final double number;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      alignment: Alignment.center,
+      height: 45,
+      width: 45,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          //TODO: BoxShadow(
+        ],
+      ),
+      child: Text(
+        number.toString().replaceAll('.0', ''),
+        style: const TextStyle(
+          color: Color(0xffF1A23A),
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
