@@ -27,6 +27,7 @@ class ShoePage extends StatelessWidget {
               ),
             ),
           ),
+          AddCartButton(price: 180.0),
         ],
       ),
     );
