@@ -1,0 +1,1 @@
+export 'package:shoesapp/src/models/shoe_size_model.dart';

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+
+import 'package:shoesapp/src/models/models.dart';
 import 'package:shoesapp/src/pages/pages.dart';
 
 class ShoeSizePreview extends StatelessWidget {
@@ -119,28 +122,40 @@ class _ShoeSizeBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      height: 45,
-      width: 45,
-      decoration: BoxDecoration(
-        color: (number == 9) ? const Color(0xffF1A23A) : Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          if (number == 9)
-            const BoxShadow(
-              blurRadius: 10,
-              color: Color(0xffF1A23A),
-              offset: Offset(0, 5),
-            ),
-        ],
-      ),
-      child: Text(
-        number.toString().replaceAll('.0', ''),
-        style: TextStyle(
-          color: (number == 9) ? Colors.white : const Color(0xffF1A23A),
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
+    final shoeModel = Provider.of<ShoeSizeModel>(context);
+
+    return GestureDetector(
+      onTap: () {
+        final shoeModel = Provider.of<ShoeSizeModel>(context, listen: false);
+        shoeModel.size = number;
+      },
+      child: Container(
+        alignment: Alignment.center,
+        height: 45,
+        width: 45,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: (number == shoeModel.size)
+              ? const Color(0xffF1A23A)
+              : Colors.white,
+          boxShadow: [
+            if (number == shoeModel.size)
+              const BoxShadow(
+                blurRadius: 10,
+                color: Color(0xffF1A23A),
+                offset: Offset(0, 5),
+              ),
+          ],
+        ),
+        child: Text(
+          number.toString().replaceAll('.0', ''),
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: (number == shoeModel.size)
+                ? Colors.white
+                : const Color(0xffF1A23A),
+          ),
         ),
       ),
     );
