@@ -5,11 +5,13 @@ class OrangeButton extends StatelessWidget {
     super.key,
     this.height = 50.0,
     this.width = 150.0,
+    this.color = Colors.orange,
     required this.text,
   });
 
   final double height;
   final double width;
+  final Color color;
   final String text;
 
   @override
@@ -20,7 +22,7 @@ class OrangeButton extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: Colors.orange,
+        color: color,
       ),
       child: Text(
         text,
