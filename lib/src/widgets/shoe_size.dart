@@ -60,6 +60,8 @@ class ShoeSizePreview extends StatelessWidget {
 class _ShoeWithShadow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final shoeModel = Provider.of<ShoeSizeModel>(context);
+
     return Padding(
       padding: const EdgeInsets.all(50),
       child: Stack(
@@ -69,7 +71,7 @@ class _ShoeWithShadow extends StatelessWidget {
             right: 0,
             child: _ShoeShadow(),
           ),
-          const Image(image: AssetImage('assets/imgs/azul.png')),
+          Image(image: AssetImage(shoeModel.assetImage)),
         ],
       ),
     );
