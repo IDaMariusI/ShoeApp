@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:shoesapp/src/helpers/helpers.dart';
 import 'package:shoesapp/src/widgets/widgets.dart';
 
 class ShoePage extends StatelessWidget {
@@ -7,6 +8,8 @@ class ShoePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    changeDarkStatus();
+
     return const Scaffold(
       body: Column(
         children: [

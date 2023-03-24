@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:provider/provider.dart';
 
+import 'package:shoesapp/src/helpers/helpers.dart';
 import 'package:shoesapp/src/models/models.dart';
 import 'package:shoesapp/src/widgets/widgets.dart';
 
@@ -11,6 +12,8 @@ class ShoeDescPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    changeLightStatus();
+
     return Scaffold(
       body: Column(
         children: [
@@ -27,6 +30,7 @@ class ShoeDescPage extends StatelessWidget {
                   elevation: 0,
                   highlightElevation: 0,
                   onPressed: () {
+                    changeDarkStatus();
                     Navigator.pop(context);
                   },
                   child: const Icon(
